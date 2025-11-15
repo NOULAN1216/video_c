@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的在线视频网站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            color: white;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 25px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #fff;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 宽高比 */
+        }
+        
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+        
+        .video-info {
+            padding: 25px;
+            line-height: 1.6;
+        }
+        
+        .video-info h2 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+        
+        .instructions {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .instructions h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            margin-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            button {
+                padding: 10px 18px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>我的在线视频网站</h1>
+            <p class="subtitle">点击播放按钮开始观看视频</p>
+        </header>
+        
+        <div class="video-container">
+            <video id="myVideo" controls>
+                <!-- 替换下面的视频URL为您自己的视频链接 -->
+                <source src="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3YvYy84MTA1YTI3NjkwNmRmNTZkL0VjNlhjb1hUMmpWT2d6MGpubktJd0xvQnIxTWkyTHdjekNGWFRHQ3cwbmZxQ0E_ZT1jSjZhTWc.mp4" type="video/mp4">
+                您的浏览器不支持 HTML5 视频播放。
+            </video>
+        </div>
+        
+        <div class="controls">
+            <button id="playBtn">播放/暂停</button>
+            <button id="muteBtn">静音/取消静音</button>
+            <button id="fullscreenBtn">全屏</button>
+            <button id="volumeUp">音量+</button>
+            <button id="volumeDown">音量-</button>
+        </div>
+        
+        <div class="video-info">
+            <h2>视频信息</h2>
+            <p>这是一个功能完整的在线视频播放网站。您可以点击播放按钮开始观看视频，也可以使用播放器自带的控制条进行播放控制。</p>
+            
+            <div class="instructions">
+                <h3>如何将您的本地视频变为在线可访问</h3>
+                <ol>
+                    <li>将您的视频文件上传到云存储服务（如Google Drive、Dropbox等）</li>
+                    <li>获取视频文件的公开分享链接</li>
+                    <li>用该链接替换上面代码中的"YOUR_VIDEO_URL_HERE"</li>
+                    <li>将HTML文件部署到GitHub Pages、Netlify或其他网站托管服务</li>
+                    <li>分享您的网址，其他人就可以观看视频了</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2023 我的视频网站 | 使用 HTML5, CSS3 & JavaScript 构建</p>
+    </footer>
+
+    <script>
+        const video = document.getElementById('myVideo');
+        const playBtn = document.getElementById('playBtn');
+        const muteBtn = document.getElementById('muteBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const volumeUpBtn = document.getElementById('volumeUp');
+        const volumeDownBtn = document.getElementById('volumeDown');
+        
+        // 播放/暂停控制
+        playBtn.addEventListener('click', function() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+        
+        // 静音控制
+        muteBtn.addEventListener('click', function() {
+            video.muted = !video.muted;
+            muteBtn.textContent = video.muted ? '取消静音' : '静音';
+        });
+        
+        // 全屏控制
+        fullscreenBtn.addEventListener('click', function() {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { /* Firefox */
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE/Edge */
+                video.msRequestFullscreen();
+            }
+        });
+        
+        // 音量控制
+        volumeUpBtn.addEventListener('click', function() {
+            if (video.volume < 1) {
+                video.volume = Math.min(video.volume + 0.1, 1);
+            }
+        });
+        
+        volumeDownBtn.addEventListener('click', function() {
+            if (video.volume > 0) {
+                video.volume = Math.max(video.volume - 0.1, 0);
+            }
+        });
+        
+        // 视频加载完成后自动播放（需要用户交互）
+        video.addEventListener('loadeddata', function() {
+            console.log('视频已加载，可以开始播放');
+        });
+        
+        // 视频播放结束事件
+        video.addEventListener('ended', function() {
+            console.log('视频播放结束');
+        });
+    </script>
+</body>
+</html>
